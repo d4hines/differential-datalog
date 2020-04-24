@@ -1,6 +1,6 @@
 use differential_datalog::record;
 use differential_datalog::record::*;
-use internment::ArcIntern;
+use internment::Intern;
 use serde;
 use std::cmp;
 use std::fmt;
@@ -21,13 +21,13 @@ pub struct internment_Intern<A>
 where
     A: Eq + Send + Hash + 'static,
 {
-    intern: ArcIntern<A>,
+    intern: Intern<A>,
 }
 
 impl<A: Eq + Hash + Send + 'static> internment_Intern<A> {
     pub fn new(x: A) -> internment_Intern<A> {
         internment_Intern {
-            intern: ArcIntern::new(x),
+            intern: Intern::new(x),
         }
     }
     pub fn as_ref(&self) -> &A {
