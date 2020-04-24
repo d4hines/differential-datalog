@@ -1,2 +1,2 @@
-[dependencies.internment]
-version = "0.3"
+[dependencies.state]
+version = "0.4"
